@@ -28,26 +28,6 @@ export const addProduct = (form,obj) => {
     try {
       dispatch({ type: productConstants.ADD_PRODUCT_REQUEST });
       const res = await axios.post(`product/create`, form);
-      console.log(obj);
-      console.log(res);
-
-      // const { accounts, voting } = loadBlockchain();
-      // let isvote = await voting.methods
-      //   .mintNFT(
-      //     accounts[0],
-      //     {
-      //       serialno: res._id,
-      //       productdetail: JSON.stringify(obj),
-      //       minter: accounts[0],
-      //       warrantyperiod: String(obj.warantyPeriod),
-      //     },
-      //     res._id
-      //   )
-      //   .send({
-      //     from: accounts[0],
-      //   });
-
-
       if (res.status === 201) {
         dispatch({ type: productConstants.ADD_PRODUCT_SUCCESS });
         dispatch(getProducts());
